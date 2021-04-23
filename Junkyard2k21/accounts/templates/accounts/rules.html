@@ -1,0 +1,154 @@
+
+{% extends 'base2.html' %}
+
+{% load static %}
+{% block title %}Question{% endblock title %}
+{% block styles %}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background: url("{% static 'response/images/junkyard.jpg' %}") no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.wrapper{
+  position: relative;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 550px;
+  background: rgba(0,0,0,0.6);
+  padding: 30px;
+
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.wrapper .title h1{
+  font-size:15px;
+  color: white;
+  text-align: left;
+  overflow: hidden;
+   -moz-hyphens:auto;
+-ms-hyphens:auto;
+-webkit-hyphens:auto;
+hyphens:auto;
+word-wrap:break-word;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.contact-form{
+  display: flex;
+}
+
+.input-fields{
+
+  margin-right: 4%;
+}
+
+.input-fields,
+.msg{
+  width: 100%;
+}
+
+.input-fields .input,
+.msg textarea{
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #ffffff;
+  width: 500px;
+}
+
+.msg textarea{
+  height: 212px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+
+button{
+    background: darkmagenta;
+    width:100%;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
+
+
+
+.wrapper .title h2{
+  font-size:25px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+   -moz-hyphens:auto;
+-ms-hyphens:auto;
+-webkit-hyphens:auto;
+hyphens:auto;
+word-wrap:break-word;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 500px)
+{
+    li,p {
+        font-size: 0.7em;
+    }
+}
+</style>
+{% endblock styles %}
+{% block content %}
+
+
+<div class="wrapper">
+  <div class="contact-form">
+    <div class="title" style="color: white;">
+         <h2>Rules for Round 1</h2>
+         <ol>
+         <li>Develop  working  science models right from easily available  junk and spare parts at your place.</li>
+         <li>Entries will be accepted in teams consisting of 1-3 members .</li>	
+         <li>The time limit for the video to be submitted for first round will be a maximum of 3 min</li>	
+         <li>The video must mention the model theme, team name and its working</li>	
+         <li>Team members will have to describe their models over Google meet on 2nd April , 3 pm  onwards ,the details of which will be conveyed later.</li>	
+         <li>The last date of video submission will be 2nd  April 12 pm .</li>	
+         <li>The judgement for the models will be done on the basis of creativity and innovation.</li>
+        </ol>
+        <br>
+        <p>Based on the problem statement given to the participants at the end of  round 1 prepare a doc or presentation proposing your idea .Round 2 will be judged based on the uniqueness , feasibility and creativity of the idea proposed</p>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

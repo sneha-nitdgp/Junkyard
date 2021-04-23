@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .fufu {
+      text-align: center;
+      ;
+    }
+
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+      opacity: 0.7;
+    }
+
+
+    body {
+      height: 100vh;
+    }
+
+    /*mynav*/
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    nav {
+      background:  #4D163D;
+
+    }
+
+    nav:after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+
+    nav .logo {
+      float: left;
+      color: white;
+      font-size: 27px;
+      padding-top: 10px;
+      font-weight: 600;
+      line-height: 70px;
+      padding-left: 20px;
+    }
+
+    nav ul {
+      float: right;
+      margin-right: 40px;
+      list-style: none;
+      position: relative;
+    }
+
+    nav ul li {
+      float: left;
+      display: inline-block;
+      background: transparent;
+      margin: 0 5px;
+    }
+
+    nav ul li a {
+      color: white;
+      line-height: 70px;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 15px;
+    }
+
+    nav ul li a:hover {
+      color: cyan;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #33ffff,
+        0 0 10px #66ffff;
+    }
+
+    .show,
+    .icon,
+    input {
+      display: none;
+    }
+
+    .fa-plus {
+      font-size: 15px;
+      margin-left: 40px;
+    }
+
+    @media all and (max-width: 968px) {
+      nav ul {
+        margin-right: 0px;
+        float: left;
+      }
+
+      nav .logo {
+        padding-left: 30px;
+        width: 100%;
+      }
+
+      .show+a,
+      ul {
+        display: none;
+      }
+
+      nav ul li,
+      nav ul ul li {
+        display: block;
+        width: 100%;
+      }
+
+      nav ul li a:hover {
+        box-shadow: none;
+      }
+
+      .show {
+        display: block;
+        color: white;
+        font-size: 18px;
+        padding: 0 20px;
+        line-height: 70px;
+        cursor: pointer;
+      }
+
+      .show:hover {
+        color: cyan;
+      }
+
+      .icon {
+        display: block;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        line-height: 70px;
+        cursor: pointer;
+        font-size: 25px;
+      }
+
+      nav ul ul {
+        top: 70px;
+        border-top: 0px;
+        float: none;
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      [id^=btn]:checked+ul {
+        display: block;
+      }
+
+      nav ul ul li {
+        border-bottom: 0px;
+      }
+
+      span.cancel:before {
+        content: '\f00d';
+      }
+    }
+
+    
+
+   
+    a {
+      text-decoration: none;
+      color: blanchedalmond;
+    }
+
+    #txtbox {
+      height: 80px;
+      width: 1000px;
+    }
+
+    
+    @media(max-width:768px) {
+
+      .mytext {
+        top: 20%
+      }
+
+    }
+
+    .question {
+      margin-left: 200px;
+      margin-right: 300px;
+    }
+
+ 
+
+  
+  </style>
+  {% block styles %}
+  {% endblock styles %}
+
+</head>
+
+<body id="back">
+ 
+
+  <nav>
+   <div class="logo">
+
+      <img style="width:150;height:60px;padding:5px;"  src="{% static 'response/images/logo.png' %}">
+    </div>
+    
+    <label for="btn" class="icon">
+      <span class="fa fa-bars"></span>
+    </label>
+    <input type="checkbox" id="btn">
+    <ul>
+        <li><a href="{% url 'landing' %}">Home</a></li>
+      <li><a href="{% url 'rules'%}">Rules</a></li>
+  {% if user.is_authenticated %}
+      <li><a href="/logout/">Logout</a></li>
+  {% endif %}
+    </ul>
+  </nav>
+  {% block content%}
+
+  {% endblock %}
+
+
+</body>
+<script src="{% static 'js/three.min.js' %}"></script>
+<script src="{% static 'js/cells.js' %}"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+</html>

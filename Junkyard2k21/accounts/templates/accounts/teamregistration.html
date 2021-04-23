@@ -1,0 +1,262 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Registration!</title>
+
+    <style>
+    body {
+    background: url('{% static 'response/images/junkyard.jpg' %}');
+    background-size: cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    -webkit-background-size:cover;
+    height: 100vh;
+
+  }
+
+    .content .btn {
+    border-radius: 9px;
+    color: #000000
+;
+    text-decoration: none;
+    font-family: 'Century Gothic', sans-serif;
+    border: 3px solid;
+    padding: 7px 13px;
+    font-weight: bold;
+  }
+
+  .content .btn:hover {
+    color: #636161;
+  }
+  
+   /*mynav*/
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    nav {
+      background: #4D163D;
+    }
+
+    nav:after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+
+    nav .logo {
+      float: left;
+      color: white;
+      font-size: 27px;
+      padding-top: 5px;
+      font-weight: 600;
+      line-height: 70px;
+      padding-left: 20px;
+    }
+
+    nav ul {
+      float: right;
+      margin-right: 40px;
+      list-style: none;
+      position: relative;
+    }
+
+    nav ul li {
+      float: left;
+      display: inline-block;
+      background: #1b1b1b;
+      margin: 0 5px;
+    }
+
+    nav ul li a {
+      color: white;
+      line-height: 70px;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 15px;
+    }
+
+    nav ul li a:hover {
+      color: cyan;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #33ffff,
+        0 0 10px #66ffff;
+    }
+
+    .show,
+    .icon,
+    input {
+      display: none;
+    }
+
+    .fa-plus {
+      font-size: 15px;
+      margin-left: 40px;
+    }
+
+    @media all and (max-width: 968px) {
+      nav ul {
+        margin-right: 0px;
+        float: left;
+      }
+
+      nav .logo {
+        padding-left: 30px;
+        width: 100%;
+      }
+
+      .show+a,
+      ul {
+        display: none;
+      }
+
+      nav ul li,
+      nav ul ul li {
+        display: block;
+        width: 100%;
+      }
+
+      nav ul li a:hover {
+        box-shadow: none;
+      }
+
+      .show {
+        display: block;
+        color: white;
+        font-size: 18px;
+        padding: 0 20px;
+        line-height: 70px;
+        cursor: pointer;
+      }
+
+      .show:hover {
+        color: cyan;
+      }
+
+      .icon {
+        display: block;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        line-height: 70px;
+        cursor: pointer;
+        font-size: 25px;
+      }
+
+      nav ul ul {
+        top: 70px;
+        border-top: 0px;
+        float: none;
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      [id^=btn]:checked+ul {
+        display: block;
+      }
+
+      nav ul ul li {
+        border-bottom: 0px;
+      }
+
+      span.cancel:before {
+        content: '\f00d';
+      }
+    }
+
+    
+
+   
+    a {
+      text-decoration: none;
+      color: blanchedalmond;
+    }
+
+    #txtbox {
+      height: 80px;
+      width: 1000px;
+    }
+
+    
+    @media(max-width:768px) {
+
+      .mytext {
+        top: 20%
+      }
+
+    }
+
+
+ 
+    </style>
+  </head>
+  <body>
+  	 <nav>
+   <div class="logo">
+
+      <img style="width:150;height:60px;padding:5px;"  src="{% static 'response/images/logo.png' %}">
+    </div>
+  
+   
+  </nav>
+    <div class="container" style="color: darkmagenta;margin-top: 1em">
+      <center>
+	<h1>TEAM REGISTRATION</h1><br>
+
+	{% if submitted %}
+		
+
+    <section class="b1">
+  <div class="in1">
+    <div class="content" style="color: white">
+      <h3> Your team was registered successfully.<br>
+       Proceed to sign up now and provide the username as the team name which was used for registration.</h3><br><br>
+            <a class="btn" style="color: darkmagenta" href="{% url 'register' %}">Sign Up</a>
+	{% else %}
+
+		<form action="" method=POST>
+			{% csrf_token %}
+
+			{{ form.as_p }}
+
+			<input type="submit" style="background-color:darkmagenta" value="Submit" class="btn btn-secondary">
+
+		</form>
+	{% endif %}
+	</center>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="{% static 'js/three.min.js' %}"></script>
+    <script src="{% static 'js/cells.js' %}"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+
+
+
+
+
+
+
